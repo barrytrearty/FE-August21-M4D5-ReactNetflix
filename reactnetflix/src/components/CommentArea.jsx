@@ -1,6 +1,6 @@
 import { Component } from 'react'
-// import CommentList from './CommentList'
-// import AddComment from './AddComment'
+import CommentList from './CommentList'
+import AddComment from './AddComment'
 // import Loading from './Loading'
 // import Error from './Error'
 
@@ -23,6 +23,7 @@ class CommentArea extends Component {
             if (response.ok) {
                 let comments = await response.json()
                 this.setState({ comments: comments, isLoading: false, isError: false })
+                console.log(comments)
             } else {
                 console.log('error')
                 this.setState({ isLoading: false, isError: true })
@@ -37,11 +38,11 @@ class CommentArea extends Component {
         return (
             <div>
 
-                Comment Area
+
                 {/* {this.state.isLoading && <Loading />}
-                {this.state.isError && <Error />}
+                {this.state.isError && <Error />} */}
                 <AddComment imdbID={this.props.imdbID} />
-                <CommentList commentsToShow={this.state.comments} /> */}
+                <CommentList commentsToShow={this.state.comments} />
             </div>
         )
     }
