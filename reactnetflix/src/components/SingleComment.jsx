@@ -1,8 +1,8 @@
 import { Button, ListGroup } from 'react-bootstrap'
 
-const deleteComment = async (elementId) => {
+const deleteComment = async (imdbID) => {
     try {
-        let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + elementId, {
+        let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + imdbID, {
             method: 'DELETE',
             headers: {
                 Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFlNGYyYTA2MTBjYjAwMTVkYTJhOGYiLCJpYXQiOjE2MzAwNDMwODMsImV4cCI6MTYzMTI1MjY4M30.TPjoSP3gBlKn79MxSZFiuU6Y6dEKPqMQplirBYINzlk"

@@ -14,7 +14,7 @@ class CommentArea extends Component {
 
     componentDidMount = async () => {
         try {
-            let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props.elementId, {
+            let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props.imdbID, {
                 headers: {
                     Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFlNGYyYTA2MTBjYjAwMTVkYTJhOGYiLCJpYXQiOjE2MzAwNDMwODMsImV4cCI6MTYzMTI1MjY4M30.TPjoSP3gBlKn79MxSZFiuU6Y6dEKPqMQplirBYINzlk"
                 }
@@ -41,7 +41,7 @@ class CommentArea extends Component {
 
                 {/* {this.state.isLoading && <Loading />}
                 {this.state.isError && <Error />} */}
-                <AddComment elementId={this.props.elementId} />
+                <AddComment imdbID={this.props.imdbID} />
                 <CommentList commentsToShow={this.state.comments} />
             </div>
         )
