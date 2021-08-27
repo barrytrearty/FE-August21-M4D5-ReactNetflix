@@ -41,7 +41,7 @@ class AddComment extends Component {
     render() {
         return (
             <div>
-                <Form onSubmit={this.sendComment}>
+                <Form onSubmit={this.sendComment} className='text-center'>
                     <Form.Group>
                         <Form.Label>Comment text</Form.Label>
                         <Form.Control
