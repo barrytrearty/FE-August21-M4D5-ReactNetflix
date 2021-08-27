@@ -40,8 +40,13 @@ class MoviesRow extends Component {
           </Col>
         </Row>
         <h2>{this.props.rowTitle}</h2>
+<<<<<<< HEAD
         <Row className="row no-gutter row-cols-1 row-cols-sm-2row-cols-md-3 row-cols-lg-6">
           {this.state.movies.filter(m => m.Title.toLowerCase().includes(this.state.searchQuery)).map((movie) => (
+=======
+        <Row className="row no-gutter row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6">
+          {this.state.movies.map((movie) => (
+>>>>>>> 362aef443a81b6b85da118739cff4400129969b1
             <SingleMovie movieObj={movie} />
           ))}
         </Row>
