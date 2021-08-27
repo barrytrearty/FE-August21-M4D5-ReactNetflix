@@ -10,11 +10,11 @@ class MoviesRow extends Component {
   componentDidMount = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=4d0dfb28&s=harry%20potter"
+        "http://www.omdbapi.com/?apikey=4d0dfb28&s=" + this.props.rowQuery
       );
       let moviesArray = await response.json();
       this.setState({
-        movies: moviesArray.Search,
+        movies: moviesArray.Search.slice(0, 6),
       });
       console.log(this.state.movies);
     } catch (error) {
@@ -25,7 +25,7 @@ class MoviesRow extends Component {
   render() {
     return (
       <Container className="container-fluid mb-4">
-        <h2>Harry Potter</h2>
+        <h2>{this.props.rowTitle}</h2>
         <Row className="row no-gutter row-cols-1 row-cols-sm-2row-cols-md-3 row-cols-lg-6">
           {this.state.movies.map((movie) => (
             <SingleMovie movieObj={movie} />
