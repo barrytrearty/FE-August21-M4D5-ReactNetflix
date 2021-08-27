@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import CommentList from './CommentList'
 import AddComment from './AddComment'
-// import Loading from './Loading'
-// import Error from './Error'
+import Loading from './Loading'
+import Error from './Error'
 
 class CommentArea extends Component {
 
@@ -39,9 +39,9 @@ class CommentArea extends Component {
             <div>
 
 
-                {/* {this.state.isLoading && <Loading />}
-                {this.state.isError && <Error />} */}
-                <AddComment imdbID={this.props.imdbID} />
+                {this.state.isLoading && <Loading />}
+                {this.state.isError && <Error />}
+                < AddComment imdbID={this.props.imdbID} />
                 <CommentList commentsToShow={this.state.comments} />
             </div>
         )

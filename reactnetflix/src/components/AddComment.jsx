@@ -26,9 +26,11 @@ class AddComment extends Component {
             if (response.ok) {
 
                 alert('Comment added!')
+                window.location.reload()
             } else {
                 console.log('error')
                 alert('something went wrong')
+                window.location.reload()
             }
         } catch (error) {
             console.log('error')
@@ -70,7 +72,7 @@ class AddComment extends Component {
                         </Form.Control>
                     </Form.Group>
                     <Button variant="primary" type="submit">
-                        Submit
+                        Add
                     </Button>
                 </Form>
             </div>

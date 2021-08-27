@@ -11,11 +11,13 @@ const deleteComment = async (imdbID) => {
         })
         if (response.ok) {
             alert('comment deleted!')
+            window.location.reload()
         } else {
             alert('comment NOT deleted!')
         }
     } catch (error) {
         alert('comment NOT deleted!')
+        window.location.reload()
     }
 }
 
