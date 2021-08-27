@@ -1,10 +1,11 @@
 import { Component } from "react";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Form, Col } from "react-bootstrap";
 import SingleMovie from "./SingleMovie";
 
 class MoviesRow extends Component {
   state = {
     movies: [],
+    searchQuery: ''
   };
 
   componentDidMount = async () => {
@@ -25,9 +26,22 @@ class MoviesRow extends Component {
   render() {
     return (
       <Container className="container-fluid mb-4">
+        <Row>
+          <Col>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Search</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Search here"
+                value={this.state.searchQuery}
+                onChange={e => this.setState({ searchQuery: e.target.value })}
+              />
+            </Form.Group>
+          </Col>
+        </Row>
         <h2>{this.props.rowTitle}</h2>
         <Row className="row no-gutter row-cols-1 row-cols-sm-2row-cols-md-3 row-cols-lg-6">
-          {this.state.movies.map((movie) => (
+          {this.state.movies.filter(m => m.Title.toLowerCase().includes(this.state.searchQuery)).map((movie) => (
             <SingleMovie movieObj={movie} />
           ))}
         </Row>

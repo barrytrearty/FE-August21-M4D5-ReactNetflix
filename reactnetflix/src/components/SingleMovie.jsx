@@ -23,6 +23,7 @@ class SingleMovie extends Component {
                   className="img-fluid w-100"
                 />
               </a>
+              <span className='text-dark'>{this.props.movieObj.Title}</span>
             </Card>
           </div>
 
