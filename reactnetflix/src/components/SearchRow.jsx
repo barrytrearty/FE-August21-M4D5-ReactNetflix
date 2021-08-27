@@ -11,13 +11,13 @@ class SearchRow extends Component {
   generateSearchRow = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=4d0dfb28&t=" + this.state.searchQuery
+        "http://www.omdbapi.com/?apikey=4d0dfb28&s=" + this.state.searchQuery
       );
       let moviesArray = await response.json();
       console.log(moviesArray);
       this.setState({
-        // movies: moviesArray.Search.slice(0, 6),
-        movies: moviesArray,
+        movies: moviesArray.Search.slice(0, 6),
+        // movies: moviesArray,
       });
       console.log(this.state.movies);
     } catch (error) {
@@ -38,7 +38,6 @@ class SearchRow extends Component {
             value={this.state.searchQuery}
             onChange={(e) => {
               this.setState({ searchQuery: e.target.value });
-              console.log(e.target.value);
               console.log(this.state.searchQuery);
               this.generateSearchRow();
             }}
@@ -48,10 +47,10 @@ class SearchRow extends Component {
         <Container className="container-fluid mb-4">
           {/* <h2>{this.props.rowTitle}</h2> */}
           <Row className="row no-gutter row-cols-1 row-cols-sm-2row-cols-md-3 row-cols-lg-6">
-            {/* {this.state.movies.map((movie) => (
+            {this.state.movies.map((movie) => (
               <SingleMovie movieObj={movie} />
-            ))} */}
-            <SingleMovie movieObj={this.state.movies} />
+            ))}
+            {/* <SingleMovie movieObj={this.state.movies} /> */}
           </Row>
         </Container>
       </>
