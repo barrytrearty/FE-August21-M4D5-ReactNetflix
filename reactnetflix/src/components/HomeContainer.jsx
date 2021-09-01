@@ -5,9 +5,9 @@ const HomeContainer = () => {
   return (
     <div>
       <SearchRow />
-      <MoviesRow rowTitle="Harry Potter" rowQuery="harry%20potter" />
-      <MoviesRow rowTitle="Lord of the Rings" rowQuery="lord%20of%20rings" />
-      <MoviesRow rowTitle="Batman" rowQuery="batman" />
+      <MoviesRow rowTitle="Harry Potter" />
+      <MoviesRow rowTitle="Lord of the Rings" />
+      <MoviesRow rowTitle="Batman" />
     </div>
   );
 };

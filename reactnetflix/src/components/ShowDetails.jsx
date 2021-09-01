@@ -4,13 +4,6 @@ import { useState, useEffect } from "react";
 // import { useParams } from "@reach/router";
 
 const ShowDetails = ({ match }) => {
-  // const [movieObj, setMovieObj] = useState({
-  //   Title: "Harry Potter and the Sorcerer's Stone",
-  //   Year: "2001",
-  //   Poster:
-  //     "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
-  // });
-
   const movieId = match.params.showId;
 
   const [movieObj, setMovieObj] = useState(null);
@@ -30,6 +23,7 @@ const ShowDetails = ({ match }) => {
 
   useEffect(() => {
     fetchMovieDetails({ movieId });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -37,14 +31,13 @@ const ShowDetails = ({ match }) => {
       {movieObj === null ? (
         <Spinner animation="border" variant="light" />
       ) : (
-        <div>
-          {" "}
+        <div className="w-50">
           <Card>
             <img src={movieObj.Poster} alt="" className="img-fluid w-100 " />
 
             <span className="text-dark">{movieObj.Title}</span>
           </Card>
-          <CommentArea imdbID={match.params.showId} />{" "}
+          <CommentArea imdbID={match.params.showId} />
         </div>
       )}
     </Container>

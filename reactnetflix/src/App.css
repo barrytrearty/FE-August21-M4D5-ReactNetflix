@@ -1,5 +1,10 @@
 .body-div {
   box-sizing: border-box;
   background-color: #181818;
+  /* background-color: #000000; */
   color: #fff;
+  list-style: none;
 }
+
+/* body {
+} */

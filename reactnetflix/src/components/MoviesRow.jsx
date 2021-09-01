@@ -1,57 +1,71 @@
-import { Component } from "react";
-import { Container, Row } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Container, Row, Spinner } from "react-bootstrap";
+import React from "react";
 import SingleMovie from "./SingleMovie";
 
-class MoviesRow extends Component {
-  state = {
-    movies: [],
-    searchQuery: "",
-  };
+const MoviesRow = ({ rowTitle }) => {
+  const [movies, setMovies] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  componentDidMount = async () => {
+  const searchMovieFetch = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=4d0dfb28&s=" + this.props.rowQuery
+        "http://www.omdbapi.com/?apikey=4d0dfb28&s=" + rowTitle
       );
       let moviesArray = await response.json();
-      this.setState({
-        movies: moviesArray.Search.slice(0, 6),
-      });
-      console.log(this.state.movies);
+      // setMovies(moviesArray.Search.slice(0, 6));
+      setMovies(moviesArray.Search);
+      // console.log(this.state.movies);
     } catch (error) {
       console.log(error);
     }
   };
 
-  render() {
-    return (
-      <Container className="container-fluid mb-4">
-        {/* <Row>
-          <Col>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Search</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Search here"
-                value={this.state.searchQuery}
-                onChange={e => this.setState({ searchQuery: e.target.value })}
-              />
-            </Form.Group>
-          </Col>
-        </Row> */}
-        <h2>{this.props.rowTitle}</h2>
+  useEffect(() => {
+    searchMovieFetch();
+  }, []);
+
+  return (
+    // <Container className="container-fluid mb-4">
+
+    // {movies === [] ? (
+    //   <Spinner animation="border" variant="light" />
+    // ) : (
+    // <Row className="row no-gutter row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6">
+    // <>
+    //   <h2>{rowTitle}</h2>
+    //   <Splide
+    //     // className="movie-segment-carousel"
+    //     options={{ rewind: true, perPage: 2, perMove: 1, gap: "1rem" }}
+    //     onMoved={(splide, newIndex) => {
+    //       console.log("moved", newIndex);
+    //     }}
+    //   >
+    //     {movies
+    //       .filter((m) => m.Title.toLowerCase().includes(searchQuery))
+    //       .map((movie) => (
+    //         <SplideSlide key={movie.imdbID}>
+    //           <SingleMovie movieObj={movie} />
+    //         </SplideSlide>
+    //       ))}
+    //   </Splide>
+    // </>
+
+    <Container className="container-fluid mb-4">
+      <h2>{rowTitle}</h2>
+      {movies === [] ? (
+        <Spinner animation="border" variant="light" />
+      ) : (
         <Row className="row no-gutter row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6">
-          {this.state.movies
-            .filter((m) =>
-              m.Title.toLowerCase().includes(this.state.searchQuery)
-            )
+          {movies
+            .filter((m) => m.Title.toLowerCase().includes(searchQuery))
             .map((movie) => (
               <SingleMovie movieObj={movie} />
             ))}
         </Row>
-      </Container>
-    );
-  }
-}
+      )}
+    </Container>
+  );
+};
 
 export default MoviesRow;
