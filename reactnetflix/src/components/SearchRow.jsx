@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // import SingleMovie from "./SingleMovie";
 // import { Component } from "react";
 // import { Form, FormControl, Container, Row } from "react-bootstrap";
@@ -70,7 +70,7 @@
 // export default SearchRow;
 
 
-=======
+
 import SingleMovie from "./SingleMovie";
 import { Component } from "react";
 import { Form, FormControl, Container, Row } from "react-bootstrap";
@@ -133,4 +133,4 @@ class SearchRow extends Component {
 }
 
 export default SearchRow;
->>>>>>> 362aef443a81b6b85da118739cff4400129969b1
+
