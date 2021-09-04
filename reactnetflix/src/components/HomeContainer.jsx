@@ -6,7 +6,7 @@ const HomeContainer = () => {
     <div>
       <SearchRow />
       <MoviesRow rowTitle="Harry Potter" />
-      <MoviesRow rowTitle="Lord of the Rings" />
+      <MoviesRow rowTitle="Pixar" />
       <MoviesRow rowTitle="Batman" />
     </div>
   );

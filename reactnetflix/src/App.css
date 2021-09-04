@@ -8,3 +8,13 @@
 
 /* body {
 } */
+
+.movie-hover:hover {
+  transform: scale(1.1);
+  z-index: 2;
+  /* overflow: visible; */
+}
+
+h2 {
+  z-index: 1;
+}
