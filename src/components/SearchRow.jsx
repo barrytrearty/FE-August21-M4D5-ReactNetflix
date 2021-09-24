@@ -11,7 +11,7 @@ const SearchRow = () => {
   const generateSearchRow = async () => {
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=4d0dfb28&s=` + searchQuery
+        `https://www.omdbapi.com/?apikey=4d0dfb28&s=` + searchQuery
       );
       let moviesArray = await response.json();
       setMovies(moviesArray.Search.slice(0, 6));
