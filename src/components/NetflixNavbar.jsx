@@ -2,11 +2,6 @@
 import { Navbar, Nav } from "react-bootstrap";
 import logo from "../data/netflix_logo.png";
 
-// class NetflixNavbar extends Component {
-//   state = {
-//     searchQuery: "",
-//   };
-
 const NetflixNavbar = () => {
   // const [searchQuery, setSearchQuery] = useState("")
 

@@ -3,6 +3,8 @@ import CommentArea from "./CommentArea";
 import { useState, useEffect } from "react";
 // import { useParams } from "@reach/router";
 
+// const apiUrl = process.env.REACT_APP_BE_URL;
+
 const ShowDetails = ({ match }) => {
   const movieId = match.params.showId;
 
@@ -11,7 +13,7 @@ const ShowDetails = ({ match }) => {
   const fetchMovieDetails = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=4d0dfb28&i=" + movieId
+        `http://www.omdbapi.com/?apikey=4d0dfb28&i=` + movieId
       );
       let obj = await response.json();
       setMovieObj(obj);

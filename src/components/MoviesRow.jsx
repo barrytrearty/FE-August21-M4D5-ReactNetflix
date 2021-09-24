@@ -5,6 +5,8 @@ import SingleMovie from "./SingleMovie";
 // import { Link } from "react-router-dom";
 // import Slider from "react-slick";
 
+// const apiUrl = process.env.REACT_APP_BE_URL;
+
 const MoviesRow = ({ rowTitle }) => {
   const [movies1, setMovies1] = useState([]);
   const [movies2, setMovies2] = useState([]);
@@ -13,7 +15,7 @@ const MoviesRow = ({ rowTitle }) => {
   const searchMovieFetch = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=4d0dfb28&s=" + rowTitle
+        `http://www.omdbapi.com/?apikey=4d0dfb28&s=` + rowTitle
       );
       let moviesArray = await response.json();
       setMovies1(moviesArray.Search.slice(0, 6));

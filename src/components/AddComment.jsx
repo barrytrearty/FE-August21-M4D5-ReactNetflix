@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 
+// const apiUrl = process.env.REACT_APP_BE_URL;
+
 const AddComment = ({ imdbID }) => {
   const [comment, setComment] = useState({
     comment: "",
@@ -17,7 +19,7 @@ const AddComment = ({ imdbID }) => {
     e.preventDefault();
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments",
+        `https://striveschool-api.herokuapp.com/api/comments`,
         {
           method: "POST",
           body: JSON.stringify(comment),

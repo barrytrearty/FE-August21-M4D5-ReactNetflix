@@ -4,6 +4,8 @@ import AddComment from "./AddComment";
 import Loading from "./Loading";
 import Error from "./Error";
 
+// const apiUrl = process.env.REACT_APP_BE_URL;
+
 const CommentArea = ({ imdbID }) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +14,7 @@ const CommentArea = ({ imdbID }) => {
   const fetchComments = async () => {
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" + imdbID,
+        `https://striveschool-api.herokuapp.com/api/comments/` + imdbID,
         {
           headers: {
             Authorization:

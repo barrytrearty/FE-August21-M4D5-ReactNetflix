@@ -2,11 +2,7 @@ import SingleMovie from "./SingleMovie";
 import { useState } from "react";
 import { Form, FormControl, Container, Row } from "react-bootstrap";
 
-// class SearchRow extends Component {
-//   state = {
-//     searchQuery: "",
-//     movies: [],
-//   };
+// const apiUrl = process.env.REACT_APP_BE_URL;
 
 const SearchRow = () => {
   const [movies, setMovies] = useState([]);
@@ -15,7 +11,7 @@ const SearchRow = () => {
   const generateSearchRow = async () => {
     try {
       let response = await fetch(
-        "http://www.omdbapi.com/?apikey=4d0dfb28&s=" + searchQuery
+        `http://www.omdbapi.com/?apikey=4d0dfb28&s=` + searchQuery
       );
       let moviesArray = await response.json();
       setMovies(moviesArray.Search.slice(0, 6));
