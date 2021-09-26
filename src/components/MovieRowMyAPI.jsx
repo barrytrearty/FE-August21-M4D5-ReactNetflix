@@ -16,7 +16,7 @@ const MoviesRowMyAPI = () => {
     try {
       let response = await fetch(`https://nebtflix.herokuapp.com/media`);
       let moviesArray = await response.json();
-      setMovies1(moviesArray.Search.slice(0, 6));
+      setMovies1(moviesArray.slice(0, 6));
       console.log(movies1);
       //   setMovies2(moviesArray.Search.slice(4, 10));
       // setMovies(moviesArray.Search);
